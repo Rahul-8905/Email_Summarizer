@@ -1,66 +1,46 @@
-
-
-```markdown
-# Data Science Report – AI Email Summarizer
+# Data Science Report
 
 ## 1. Dataset Description
-- Source: Custom email summarization dataset (`email_thread_details.csv` + `email_thread_summaries.csv`).
-- Structure:
-  - **Details**: thread_id, subject, body.
-  - **Summaries**: thread_id, summary.
-- Final training pairs:
-  - Input: `"Summarize this email:\nSubject: <subject>\n\nBody:\n<body>"`
-  - Target: `<summary>`.
-- Split: 90% train, 10% test.
+- Source: Kaggle email dataset (email-thread-summary-dataset)
+- Already Processed Dataset 
+- Size: 21,684 emails.
 
+---
 
-## 2. Fine-tuning Setup
+## 2. Fine-Tuning Setup
+- **Base model**: FLAN-T5 small  
+- **Method**: LoRA (Low-Rank Adaptation)  
+- **Parameters**:
+  - r = 8  
+  - lora_alpha = 16  
+  - target_modules = ["q", "k", "v"]  
+  - dropout = 0.05  
+- **Training**:
+  - Batch size = 16  
+  - Optimizer = AdamW (default in Hugging Face Trainer)  
+  - Epochs = 3  
+  - Learning rate = 2e-4
 
-### Model
-- Base model: `google/flan-t5-small`.
-- Parameter-efficient tuning with **LoRA**:
-  - `r = 8`
-  - `lora_alpha = 16`
-  - `target_modules = ["q", "v"]`
-  - `lora_dropout = 0.05`
-
-### Training
-- Optimizer: AdamW.
-- Learning rate: `2e-4`.
-- Batch size: `4`.
-- Epochs: `3`.
-- Mixed precision: FP16.
-- Hardware: Kaggle GPU runtime (T4).
-
+---
 
 ## 3. Results
 
-### Training Loss
-- Initial loss: ~5.8
-- Final loss: ~2.9 (after 3 epochs)
+- **Evaluation Metrics**:
+  - ROUGE-1: 0.xx  
+  - ROUGE-2: 0.xx  
+  - ROUGE-L: 0.xx  
 
-### Evaluation Metrics (ROUGE)
-- **ROUGE-1**: 47.2
-- **ROUGE-2**: 28.6
-- **ROUGE-L**: 45.9
+- **Qualitative Examples**:
+  | Email Snippet | Generated Summary |
+  |---------------|------------------|
+  | Long email body ... | "Meeting rescheduled to 3 PM tomorrow." |
 
-Interpretation:
-- Model captures key ideas but occasionally drops fine details.
-- Summaries are coherent and concise.
+---
 
-
-## 4. Discussion of Performance
-- **Strengths**:
-  - LoRA reduced compute cost (training feasible on a single GPU).
-  - Summaries are fluent, domain-adapted to email text.
-  - Final loss and ROUGE show significant improvement over base FLAN-T5.
-
-- **Limitations**:
-  - Loss plateaued at ~2.9 — suggests more epochs, larger dataset, or bigger model (`flan-t5-base`) could help.
-  - Occasional hallucination of facts not present in email body.
-
-- **Future Improvements**:
-  - Try `q+k+v` LoRA targets for richer adaptation.
-  - Add evaluation with human annotators for quality judgment.
-  - Integrate spam filtering or classification as a multi-agent setup.
-
+## 4. Discussion
+- LoRA fine-tuning made the model specialize in **email summarization** without retraining the entire FLAN-T5 model.  
+- Compared to base model, summaries are **more concise and context-aware**.  
+- Limitations: struggles with very long threads; some loss of nuance.  
+- Future work:  
+  - Try multi-task training with classification (urgent vs. non-urgent).  
+  - Use RAG to add context for older emails.
