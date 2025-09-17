@@ -21,7 +21,7 @@ A Streamlit-based AI assistant that connects to Gmail via IMAP, fetches recent e
 
 **FLAN-T5** was chosen as the backbone because it is a strong text-to-text model that can handle a variety of NLP tasks, including summarization. Its instruction-tuned design makes it especially good at following commands like "Summarize this email," producing concise and readable summaries without extensive task-specific training.
 
-**LoRA (Low-Rank Adaptation)** was used for fine-tuning to efficiently adapt the model to the email summarization task. Instead of updating all of FLAN-T5's parameters—which would be computationally expensive—LoRA injects a small number of trainable parameters into the attention layers. This allows the model to **specialize in summarizing emails** while keeping training fast, memory-efficient, and stable.  
+**LoRA (Low-Rank Adaptation)** was used for fine-tuning to efficiently adapt the model to the email summarization task. Instead of updating all of FLAN-T5's parameters-which would be computationally expensive-LoRA injects a small number of trainable parameters into the attention layers. This allows the model to **specialize in summarizing emails** while keeping training fast, memory-efficient, and stable.  
 
 3. **Streamlit User Interface**
    - Simple web-based UI for interaction.
