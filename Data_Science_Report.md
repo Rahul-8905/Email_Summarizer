@@ -16,8 +16,7 @@
   - target_modules = ["q", "k", "v"]  
   - dropout = 0.05  
 - **Training**:
-  - Batch size = 16  
-  - Optimizer = AdamW (default in Hugging Face Trainer)  
+  - Batch size = 4  
   - Epochs = 3  
   - Learning rate = 2e-4
 
@@ -26,7 +25,10 @@
 ## 3. Results
 
 - **Evaluation Metrics**:
-  - Steps vs Training Loss values has been uploaded 
+  - Steps vs Training Loss values has been uploaded
+  - ROUGE-1: 0.29 
+  - ROUGE-2: 0.10  
+  - ROUGE-L: 0.22
 
 - **Qualitative Examples**:
   | Email Snippet | Generated Summary |
