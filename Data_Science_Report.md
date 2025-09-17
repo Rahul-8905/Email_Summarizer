@@ -26,7 +26,7 @@
 ## 3. Results
 
 - **Evaluation Metrics**:
-  -Steps vs Training Loss values have been uploaded 
+- Steps vs Training Loss values have been uploaded 
 
 - **Qualitative Examples**:
   | Email Snippet | Generated Summary |
