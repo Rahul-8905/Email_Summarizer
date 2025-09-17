@@ -1,7 +1,4 @@
 
----
-
-# 📄 `data_science_report.md` (you will export as PDF)
 
 ```markdown
 # Data Science Report – AI Email Summarizer
@@ -16,7 +13,6 @@
   - Target: `<summary>`.
 - Split: 90% train, 10% test.
 
----
 
 ## 2. Fine-tuning Setup
 
@@ -36,7 +32,6 @@
 - Mixed precision: FP16.
 - Hardware: Kaggle GPU runtime (T4).
 
----
 
 ## 3. Results
 
@@ -53,7 +48,6 @@ Interpretation:
 - Model captures key ideas but occasionally drops fine details.
 - Summaries are coherent and concise.
 
----
 
 ## 4. Discussion of Performance
 - **Strengths**:
@@ -70,4 +64,3 @@ Interpretation:
   - Add evaluation with human annotators for quality judgment.
   - Integrate spam filtering or classification as a multi-agent setup.
 
----
