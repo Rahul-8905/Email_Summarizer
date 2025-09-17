@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 from email.header import decode_header
 
-# 1. Load credentials
+#Load credentials
 
 env_path = r".env"
 load_dotenv(dotenv_path=env_path)
@@ -34,7 +34,6 @@ tokenizer, model, device = load_model()
 IMAP_SERVER = "imap.gmail.com"
 
 def decode_subject(subject_raw):
-    """Decode encoded email subjects"""
     if subject_raw:
         decoded, encoding = decode_header(subject_raw)[0]
         if isinstance(decoded, bytes):
@@ -113,3 +112,4 @@ def main():
         st.success(summary)
 
 main()
+
