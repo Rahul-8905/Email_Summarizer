@@ -1,7 +1,7 @@
 # Email_Summarizer
 A Streamlit-based AI assistant that connects to Gmail via IMAP, fetches recent emails, and generates concise summaries using a fine-tuned FLAN-T5 model with parameter-efficient LoRA training.
 
-# AI Email Summarizer – Architecture Document
+# AI Email Summarizer - Architecture Document
 
 ## Components
 
@@ -23,3 +23,10 @@ A Streamlit-based AI assistant that connects to Gmail via IMAP, fetches recent e
    - Displays fetched emails with subject + sender.
    - Provides a "Summarize" button for each email.
    - Shows generated summaries inline.
+# Flow Diagram
+```mermaid
+flowchart TD
+    A["User"] -->|Login with Gmail| B["Gmail Fetcher"]
+    B -->|Email JSON| C["Summarizer: Fine-tuned FLAN-T5 with LoRA"]
+    C -->|Summary| D["Streamlit UI"]
+    D -->|Display Summaries| A
