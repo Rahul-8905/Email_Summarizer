@@ -16,3 +16,6 @@ During the development of the email summarizer, the following prompts were used 
 
 **Documentation & reporting**  
 > How should I write the README and project report?
+
+**Ways to improve UI**  
+> How can I improve the UI further using streamlit?
