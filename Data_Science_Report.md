@@ -26,9 +26,7 @@
 ## 3. Results
 
 - **Evaluation Metrics**:
-  - ROUGE-1: 0.xx  
-  - ROUGE-2: 0.xx  
-  - ROUGE-L: 0.xx  
+  -Steps vs Training Loss values have been uploaded 
 
 - **Qualitative Examples**:
   | Email Snippet | Generated Summary |
