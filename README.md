@@ -21,7 +21,6 @@ A Streamlit-based AI assistant that connects to Gmail via IMAP, fetches recent e
 3. **Streamlit User Interface**
    - Simple web-based UI for interaction.
    - Displays fetched emails with subject + sender.
-   - Provides a "Summarize" button for each email.
    - Shows generated summaries inline.
 # Flow Diagram
 ```mermaid
